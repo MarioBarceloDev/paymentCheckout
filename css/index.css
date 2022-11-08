@@ -56,9 +56,32 @@ form {
 	gap: 24px;
 }
 
-form input,
-form select,
-form button {
+.form-group {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+.row-group {
+	display: flex;
+	flex-direction: row;
+}
+
+.row-group .form-group,
+.row-group .icon-group {
+	max-width: 144px;
+}
+
+.icon-group input {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	border: none;
+}
+
+form .form-group input,
+form button,
+.icon-group {
 	-webkit-appearance: none;
 	-moz-appearance: none;
 	appearance: none;
@@ -66,9 +89,35 @@ form button {
 	border-radius: 10px;
 }
 
-form input,
-form select {
+form .form-group input,
+.icon-group {
 	border: 1px solid var(--grey2);
+	padding-left: 12px;
+}
+
+form .form-group input,
+.icon-group input {
+	color: var(--black);
+	font: var(--text1regular);
+}
+
+form .form-group input::placeholder {
+	color: var(--grey);
+	font: var(--text1regular);
+}
+
+.icon-group {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding-right: 12px;
+	margin-top: 12px;
+}
+
+.icon-group input {
+	height: 100%;
+	width: 100%;
+	padding: 0;
 }
 
 form button {
@@ -84,4 +133,15 @@ label {
 
 small {
 	font: var(--text2regular);
+}
+
+.empty {
+	background-color: var(--grey2);
+	border-color: var(--grey2);
+}
+
+.filling {
+	background-color: var(--white);
+	border-color: var(--grey2);
+	box-shadow: 0px 4px 18px rgba(158, 168, 189, 0.31);
 }

@@ -20,9 +20,10 @@
 				<h1>Payment information</h1>
 			</div>
 			<form action="">
-				<div>
+				<div class="form-group">
 					<label for="full-name">Full Name</label>
 					<input
+						class="filling"
 						type="text"
 						id="full-name"
 						aria-label="Full Name"
@@ -31,63 +32,50 @@
 					/>
 				</div>
 
-				<div>
+				<div class="">
 					<label for="card-number">Card Number</label>
-					<input
-						type="text"
-						id="card-number"
-						aria-label="Card Number"
-						maxlength="12"
-						pattern="[0-9]{12}"
-						placeholder="1234 1234 1234 1234"
-						required
-					/>
+					<div class="icon-group">
+						<input
+							type="text"
+							id="card-number"
+							aria-label="Card Number"
+							maxlength="12"
+							pattern="[0-9]{12}"
+							placeholder="1234 1234 1234 1234"
+							required
+						/>
+						<img src="./icons/credit-card.png" height="14" width="14" />
+					</div>
 				</div>
 
-				<div>
-					<div>
-						<label for="expiration-month">Expiration Date</label>
-						<select
-							id="expiration-month"
-							aria-label="Expiration Month"
-							placeholder="MM"
-							required
-						>
-							<option>01</option>
-							<option>02</option>
-							<option>03</option>
-							<option>04</option>
-							<option>05</option>
-							<option>06</option>
-							<option>07</option>
-							<option>08</option>
-							<option>09</option>
-							<option>10</option>
-							<option>11</option>
-							<option>12</option>
-						</select>
-						<select
-							id="expiration-year"
-							aria-label="Expiration Year"
-							placeholder="YY"
-							required
-						>
-							<option>22</option>
-							<option>23</option>
-						</select>
-					</div>
-					<div>
-						<label for="cvc">CVC</label>
+				<div class="row-group">
+					<div class="form-group">
+						<label for="expiration">Expiration Date</label>
 						<input
-							class="cvc-input"
+							class="expiration-input"
 							type="tel"
-							maxlength="3"
-							id="cvc"
+							maxlength="4"
+							id="expiration"
+							placeholder="MM/YY"
 							required
 						/>
 					</div>
+					<div class="">
+						<label for="cvc">CVC</label>
+						<div class="icon-group">
+							<input
+								class="cvc-input"
+								type="tel"
+								maxlength="3"
+								placeholder="···"
+								id="cvc"
+								required
+							/>
+							<img src="./icons/info.png" height="14" width="14" />
+						</div>
+					</div>
 				</div>
-				<div>
+				<div class="form-group">
 					<label for="cardholder-name">Address</label>
 					<input
 						type="text"
