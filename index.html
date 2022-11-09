@@ -11,6 +11,7 @@
 			rel="stylesheet"
 		/>
 		<link rel="stylesheet" href="./css/index.css" />
+		<script src="./index.js" defer></script>
 		<title>Formulario de pagos</title>
 	</head>
 	<body>
@@ -23,7 +24,7 @@
 				<div class="form-group">
 					<label for="full-name">Full Name</label>
 					<input
-						class="filling"
+						class="full-name empty"
 						type="text"
 						id="full-name"
 						aria-label="Full Name"
@@ -39,6 +40,7 @@
 							type="text"
 							id="card-number"
 							aria-label="Card Number"
+							class="empty"
 							maxlength="12"
 							pattern="[0-9]{12}"
 							placeholder="1234 1234 1234 1234"
@@ -52,7 +54,7 @@
 					<div class="form-group">
 						<label for="expiration">Expiration Date</label>
 						<input
-							class="expiration-input"
+							class="expiration-input empty"
 							type="tel"
 							maxlength="4"
 							id="expiration"
@@ -64,7 +66,7 @@
 						<label for="cvc">CVC</label>
 						<div class="icon-group">
 							<input
-								class="cvc-input"
+								class="cvc-input empty"
 								type="tel"
 								maxlength="3"
 								placeholder="···"
@@ -80,6 +82,7 @@
 					<input
 						type="text"
 						id="address"
+						class="empty"
 						aria-label="adress"
 						placeholder="Av. Morelos 123"
 						required
@@ -87,7 +90,9 @@
 				</div>
 				<button type="submit">Confirm payment</button>
 			</form>
-			<small>Verify the information is correct</small>
+			<div class="verify-info">
+				<small>Verify the information is correct</small>
+			</div>
 		</div>
 	</body>
 </html>

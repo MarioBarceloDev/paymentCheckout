@@ -79,7 +79,7 @@ form {
 	border: none;
 }
 
-form .form-group input,
+.form-group input,
 form button,
 .icon-group {
 	-webkit-appearance: none;
@@ -89,19 +89,20 @@ form button,
 	border-radius: 10px;
 }
 
-form .form-group input,
+.form-group input,
 .icon-group {
 	border: 1px solid var(--grey2);
 	padding-left: 12px;
 }
 
-form .form-group input,
+.form-group input,
 .icon-group input {
 	color: var(--black);
 	font: var(--text1regular);
 }
 
-form .form-group input::placeholder {
+.form-group input::placeholder,
+.icon-group input::placeholder {
 	color: var(--grey);
 	font: var(--text1regular);
 }
@@ -127,8 +128,19 @@ form button {
 	color: var(--white);
 }
 
+form button:hover {
+	cursor: pointer;
+}
+
 label {
 	font: var(--text1regular);
+}
+
+.verify-info {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	margin-top: 8px;
 }
 
 small {
