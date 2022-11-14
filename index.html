@@ -33,7 +33,7 @@
 					/>
 				</div>
 
-				<div class="">
+				<div class="icon-group-container">
 					<label for="card-number">Card Number</label>
 					<div class="icon-group empty">
 						<input
@@ -42,6 +42,7 @@
 							aria-label="Card Number"
 							class="empty"
 							maxlength="12"
+							pattern="[0-9]{12}"
 							placeholder="1234 1234 1234 1234"
 							required
 						/>
@@ -56,18 +57,20 @@
 							class="expiration-input empty"
 							type="tel"
 							maxlength="4"
+							pattern="[0-9]{4}"
 							id="expiration"
 							placeholder="MM/YY"
 							required
 						/>
 					</div>
-					<div class="">
+					<div class="icon-group-container">
 						<label for="cvc">CVC</label>
 						<div class="icon-group empty">
 							<input
 								class="cvc-input empty"
 								type="tel"
 								maxlength="3"
+								pattern="[0-9]{3}"
 								placeholder="···"
 								id="cvc"
 								required
@@ -87,7 +90,7 @@
 						required
 					/>
 				</div>
-				<button type="submit">Confirm payment</button>
+				<button type="submit" class="disabled" disabled>Confirm payment</button>
 			</form>
 			<div class="verify-info">
 				<small>Verify the information is correct</small>

@@ -128,6 +128,11 @@ form button {
 	color: var(--white);
 }
 
+form button.disabled {
+	background-color: var(--primary);
+	opacity: 0.3;
+}
+
 form button:hover {
 	cursor: pointer;
 }

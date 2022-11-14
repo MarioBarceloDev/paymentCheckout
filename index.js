@@ -1,6 +1,10 @@
-const input = document.querySelectorAll("input");
+const inputs = document.querySelectorAll("input");
+const submitButton = document.querySelector("button[type='submit']");
+const iconInputsContainer = document.querySelectorAll(
+	"div.icon-group-container"
+);
 
-input.forEach((input) => {
+inputs.forEach((input) => {
 	input.addEventListener("focus", () => {
 		console.log("FOCUSIN");
 		input.classList.remove("empty");
@@ -9,6 +13,8 @@ input.forEach((input) => {
 			input.parentElement.classList.add("filling");
 		}
 		input.classList.add("filling");
+
+		checkInputsFilled();
 	});
 
 	input.addEventListener("focusout", () => {
@@ -21,5 +27,18 @@ input.forEach((input) => {
 			}
 			input.classList.add("empty");
 		}
+		checkInputsFilled();
 	});
 });
+
+function checkInputsFilled() {
+	let inputsArray = Array.from(inputs);
+	let result = inputsArray.filter((input) => input.value == "");
+	if (result.length == 0) {
+		submitButton.classList.remove("disabled");
+		submitButton.removeAttribute("disabled");
+	} else {
+		submitButton.classList.add("disabled");
+		submitButton.setAttribute("disabled", "");
+	}
+}
