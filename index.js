@@ -27,18 +27,24 @@ inputs.forEach((input) => {
 			}
 			input.classList.add("empty");
 		}
-		checkInputsFilled();
 	});
 });
 
 function checkInputsFilled() {
 	let inputsArray = Array.from(inputs);
 	let result = inputsArray.filter((input) => input.value == "");
-	if (result.length == 0) {
-		submitButton.classList.remove("disabled");
-		submitButton.removeAttribute("disabled");
-	} else {
-		submitButton.classList.add("disabled");
-		submitButton.setAttribute("disabled", "");
+	if (result.length == 1) {
+		console.log("OHO");
+		result[0].addEventListener("input", () => {
+			console.log("Escribiendo");
+			if (result[0].value !== "") {
+				submitButton.classList.remove("disabled");
+				submitButton.removeAttribute("disabled");
+			}
+			if (result[0].value == "") {
+				submitButton.classList.add("disabled");
+				submitButton.setAttribute("disabled", "");
+			}
+		});
 	}
 }
