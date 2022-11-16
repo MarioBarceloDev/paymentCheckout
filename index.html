@@ -11,7 +11,6 @@
 			rel="stylesheet"
 		/>
 		<link rel="stylesheet" href="./css/index.css" />
-		<script src="./index.js" defer></script>
 		<title>Formulario de pagos</title>
 	</head>
 	<body>
@@ -41,11 +40,15 @@
 							id="card-number"
 							aria-label="Card Number"
 							class="empty"
-							maxlength="19"
 							placeholder="1234 1234 1234 1234"
 							required
 						/>
-						<img src="./icons/credit-card.png" height="14" width="14" />
+						<img
+							id="card-icon"
+							src="./icons/credit-card.png"
+							height="14"
+							width="14"
+						/>
 					</div>
 				</div>
 
@@ -55,26 +58,31 @@
 						<input
 							class="expiration-input empty"
 							type="tel"
-							maxlength="5"
-							pattern="[0-9]{5}"
 							id="expiration"
+							minlength="5"
+							maxlength="5"
+							pattern="/{5}/"
 							placeholder="MM/YY"
 							required
 						/>
 					</div>
 					<div class="icon-group-container">
-						<label for="cvv">CVC</label>
+						<label for="cvv">CVV</label>
 						<div class="icon-group empty">
 							<input
 								class="cvv-input empty"
 								type="tel"
 								maxlength="3"
-								pattern="[0-9]{3}"
 								placeholder="···"
 								id="cvv"
 								required
 							/>
-							<img src="./icons/info.png" height="14" width="14" />
+							<img
+								id="info-icon"
+								src="./icons/info.png"
+								height="14"
+								width="14"
+							/>
 						</div>
 					</div>
 				</div>
@@ -96,5 +104,6 @@
 			</div>
 		</div>
 		<script src="https://cdn.jsdelivr.net/npm/cleave.js@1.6.0/dist/cleave.min.js"></script>
+		<script src="./index.js" defer></script>
 	</body>
 </html>

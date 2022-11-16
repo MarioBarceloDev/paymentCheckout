@@ -1,3 +1,4 @@
+const form = document.querySelector("form");
 const inputs = document.querySelectorAll("input");
 const submitButton = document.querySelector("button[type='submit']");
 const iconInputsContainer = document.querySelectorAll(
@@ -6,6 +7,39 @@ const iconInputsContainer = document.querySelectorAll(
 const cardNumberInput = document.querySelector("#card-number");
 const expirationDateInput = document.querySelector("#expiration");
 const CVVInput = document.querySelector("#cvv");
+const cardImgElement = document.querySelector("#card-icon");
+
+const visaIcon = "./icons/visa.svg";
+const mastercardIcon = "./icons/mastercard.svg";
+const defaultCardIcon = "./icons/credit-card.png";
+
+const cleaveCC = new Cleave(cardNumberInput, {
+	creditCard: true,
+	delimiter: " ",
+	onCreditCardTypeChanged: function (type) {
+		switch (type) {
+			case "visa":
+				cardImgElement.src = visaIcon;
+				break;
+			case "mastercard":
+				cardImgElement.src = mastercardIcon;
+				break;
+			default:
+				cardImgElement.src = defaultCardIcon;
+				break;
+		}
+	},
+});
+
+const cleaveExpiration = new Cleave(expirationDateInput, {
+	date: true,
+	datePattern: ["m", "y"],
+});
+
+const cleaveCVV = new Cleave(CVVInput, {
+	numeralPositiveOnly: true,
+	blocks: [3],
+});
 
 inputs.forEach((input) => {
 	input.addEventListener("focus", () => {
@@ -37,6 +71,8 @@ inputs.forEach((input) => {
 function checkInputsFilled() {
 	let inputsArray = Array.from(inputs);
 	let result = inputsArray.filter((input) => input.value == "");
+	// If this is the last input to fill
+	console.log(result);
 	if (result.length == 1) {
 		result[0].addEventListener("input", () => {
 			console.log("Escribiendo");
@@ -51,3 +87,7 @@ function checkInputsFilled() {
 		});
 	}
 }
+
+submitButton.addEventListener("click", (e) => {
+	e.preventDefault();
+});
