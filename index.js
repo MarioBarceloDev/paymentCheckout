@@ -51,6 +51,16 @@ inputs.forEach((input) => {
 			input.style.boxShadow = "none";
 		}
 		input.classList.add("filling");
+		checkInputsFilled();
+	});
+	input.addEventListener("input", () => {
+		input.classList.remove("empty");
+		if (input.parentElement.classList.contains("icon-group")) {
+			input.parentElement.classList.remove("empty");
+			input.parentElement.classList.add("filling");
+			input.style.boxShadow = "none";
+		}
+		input.classList.add("filling");
 
 		checkInputsFilled();
 	});
@@ -65,26 +75,54 @@ inputs.forEach((input) => {
 			}
 			input.classList.add("empty");
 		}
+		checkInputsFilled();
+	});
+
+	input.addEventListener("input", () => {
+		if (!input.value) {
+			input.classList.remove("filling");
+			if (input.parentElement.classList.contains("icon-group")) {
+				input.parentElement.classList.remove("filling");
+				input.parentElement.classList.add("empty");
+			}
+			input.classList.add("empty");
+		}
 	});
 });
 
 function checkInputsFilled() {
+	// let inputsArray = Array.from(inputs);
+	// let result = inputsArray.filter((input) => input.value == "");
+	// console.log(result);
+	// if (result.length == 1) {
+	// 	result[0].addEventListener("input", () => {
+	// 		console.log("Escribiendo");
+	// 		if (result[0].value !== "") {
+	// 			submitButton.classList.remove("disabled");
+	// 			submitButton.removeAttribute("disabled");
+	// 		}
+	// 		if (result[0].value == "") {
+	// 			submitButton.classList.add("disabled");
+	// 			submitButton.setAttribute("disabled", "");
+	// 		}
+	// 	});
+	// }
+
 	let inputsArray = Array.from(inputs);
-	let result = inputsArray.filter((input) => input.value == "");
-	// If this is the last input to fill
-	console.log(result);
-	if (result.length == 1) {
-		result[0].addEventListener("input", () => {
-			console.log("Escribiendo");
-			if (result[0].value !== "") {
-				submitButton.classList.remove("disabled");
-				submitButton.removeAttribute("disabled");
-			}
-			if (result[0].value == "") {
-				submitButton.classList.add("disabled");
-				submitButton.setAttribute("disabled", "");
-			}
-		});
+	let result = inputsArray.map((input) => {
+		if (input.value === "") {
+			return false;
+		} else {
+			return true;
+		}
+	});
+	let inputsFilled = result.every((input) => input === true);
+	if (inputsFilled) {
+		submitButton.classList.remove("disabled");
+		submitButton.removeAttribute("disabled");
+	} else {
+		submitButton.classList.add("disabled");
+		submitButton.setAttribute("disabled", "");
 	}
 }
 
