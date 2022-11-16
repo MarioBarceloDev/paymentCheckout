@@ -91,23 +91,6 @@ inputs.forEach((input) => {
 });
 
 function checkInputsFilled() {
-	// let inputsArray = Array.from(inputs);
-	// let result = inputsArray.filter((input) => input.value == "");
-	// console.log(result);
-	// if (result.length == 1) {
-	// 	result[0].addEventListener("input", () => {
-	// 		console.log("Escribiendo");
-	// 		if (result[0].value !== "") {
-	// 			submitButton.classList.remove("disabled");
-	// 			submitButton.removeAttribute("disabled");
-	// 		}
-	// 		if (result[0].value == "") {
-	// 			submitButton.classList.add("disabled");
-	// 			submitButton.setAttribute("disabled", "");
-	// 		}
-	// 	});
-	// }
-
 	let inputsArray = Array.from(inputs);
 	let result = inputsArray.map((input) => {
 		if (input.value === "") {
