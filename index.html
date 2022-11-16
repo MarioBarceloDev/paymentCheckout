@@ -41,8 +41,7 @@
 							id="card-number"
 							aria-label="Card Number"
 							class="empty"
-							maxlength="12"
-							pattern="[0-9]{12}"
+							maxlength="19"
 							placeholder="1234 1234 1234 1234"
 							required
 						/>
@@ -56,23 +55,23 @@
 						<input
 							class="expiration-input empty"
 							type="tel"
-							maxlength="4"
-							pattern="[0-9]{4}"
+							maxlength="5"
+							pattern="[0-9]{5}"
 							id="expiration"
 							placeholder="MM/YY"
 							required
 						/>
 					</div>
 					<div class="icon-group-container">
-						<label for="cvc">CVC</label>
+						<label for="cvv">CVC</label>
 						<div class="icon-group empty">
 							<input
-								class="cvc-input empty"
+								class="cvv-input empty"
 								type="tel"
 								maxlength="3"
 								pattern="[0-9]{3}"
 								placeholder="···"
-								id="cvc"
+								id="cvv"
 								required
 							/>
 							<img src="./icons/info.png" height="14" width="14" />
@@ -96,5 +95,6 @@
 				<small>Verify the information is correct</small>
 			</div>
 		</div>
+		<script src="https://cdn.jsdelivr.net/npm/cleave.js@1.6.0/dist/cleave.min.js"></script>
 	</body>
 </html>

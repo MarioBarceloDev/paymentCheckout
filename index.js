@@ -3,6 +3,9 @@ const submitButton = document.querySelector("button[type='submit']");
 const iconInputsContainer = document.querySelectorAll(
 	"div.icon-group-container"
 );
+const cardNumberInput = document.querySelector("#card-number");
+const expirationDateInput = document.querySelector("#expiration");
+const CVVInput = document.querySelector("#cvv");
 
 inputs.forEach((input) => {
 	input.addEventListener("focus", () => {
@@ -11,6 +14,7 @@ inputs.forEach((input) => {
 		if (input.parentElement.classList.contains("icon-group")) {
 			input.parentElement.classList.remove("empty");
 			input.parentElement.classList.add("filling");
+			input.style.boxShadow = "none";
 		}
 		input.classList.add("filling");
 
@@ -34,7 +38,6 @@ function checkInputsFilled() {
 	let inputsArray = Array.from(inputs);
 	let result = inputsArray.filter((input) => input.value == "");
 	if (result.length == 1) {
-		console.log("OHO");
 		result[0].addEventListener("input", () => {
 			console.log("Escribiendo");
 			if (result[0].value !== "") {

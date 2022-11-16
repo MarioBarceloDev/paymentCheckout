@@ -65,6 +65,7 @@ form {
 .row-group {
 	display: flex;
 	flex-direction: row;
+	gap: 12px;
 }
 
 .row-group .form-group,
@@ -77,6 +78,11 @@ form {
 	-moz-appearance: none;
 	appearance: none;
 	border: none;
+	border-radius: 10px;
+}
+
+.form-group input {
+	padding-left: 12px;
 }
 
 .form-group input,
@@ -92,13 +98,18 @@ form button,
 .form-group input,
 .icon-group {
 	border: 1px solid var(--grey2);
-	padding-left: 12px;
 }
 
 .form-group input,
 .icon-group input {
 	color: var(--black);
 	font: var(--text1regular);
+	transition: box-shadow 0.3s ease;
+}
+
+.form-group input:focus,
+.icon-group input:focus {
+	outline: none;
 }
 
 .form-group input::placeholder,
@@ -113,9 +124,12 @@ form button,
 	justify-content: space-between;
 	padding-right: 12px;
 	margin-top: 12px;
+	transition: box-shadow 0.3s ease;
 }
 
 .icon-group input {
+	box-sizing: border-box;
+	padding-left: 12px !important;
 	height: 100%;
 	width: 100%;
 	padding: 0;
