@@ -43,7 +43,6 @@ const cleaveCVV = new Cleave(CVVInput, {
 
 inputs.forEach((input) => {
 	input.addEventListener("focus", () => {
-		console.log("FOCUSIN");
 		input.classList.remove("empty");
 		if (input.parentElement.classList.contains("icon-group")) {
 			input.parentElement.classList.remove("empty");
@@ -66,7 +65,6 @@ inputs.forEach((input) => {
 	});
 
 	input.addEventListener("focusout", () => {
-		console.log("FOCUSOUT");
 		if (!input.value) {
 			input.classList.remove("filling");
 			if (input.parentElement.classList.contains("icon-group")) {
