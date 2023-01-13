@@ -2,8 +2,7 @@
 
 A payment checkout form with soft input verification
 
-![paymentChekout-thumbnail](https://user-images.githubusercontent.com/44384270/202925758-0b60ae73-7c7b-4af6-9d80-45d1819235c1.png)
-
+![payment-checkout](https://user-images.githubusercontent.com/44384270/212402880-5a0c853a-7701-4a9b-9644-68c0e5c4fbc7.png)
 
 ## Features
 
